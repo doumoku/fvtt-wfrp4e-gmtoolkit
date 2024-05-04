@@ -108,7 +108,7 @@ export default class Advantage {
     async function updateCharacterAdvantage () {
       let updated = ""
 
-      if (!character.actor.ownership[game.user.id]) {
+      if (!character.actor.isOwner) {
         return updated = await game.socket.emit(
           `module.${GMToolkit.MODULE_ID}`,
           {
@@ -316,7 +316,7 @@ Hooks.on("wfrp4e:applyDamage", async function (scriptArgs) {
   if (character.combatant.getFlag(GMToolkit.MODULE_ID, "advantage")?.outmanoeuvre !== scriptArgs.opposedTest.attackerTest.message.id) {
     await Advantage.update(character, "increase", "wfrp4e:applyDamage")
 
-    if (!character.actor.ownership[game.user.id]) {
+    if (!character.actor.isOwner) {
       await game.socket.emit(`module.${GMToolkit.MODULE_ID}`, {
         type: "setFlag",
         payload: {
@@ -347,7 +347,7 @@ Hooks.on("wfrp4e:opposedTestResult", async function (opposedTest, attackerTest, 
   if (!game.settings.get("wfrp4e", "useGroupAdvantage")) {
     // Flag attacker charging
     if (attackerTest.data.preData?.charging || attackerTest.data.result.other === game.i18n.localize("Charging")) {
-      if (!attackerTest.actor.ownership[game.user.id]) {
+      if (!attackerTest.actor.isOwner) {
         await game.socket.emit(`module.${GMToolkit.MODULE_ID}`, {
           type: "setFlag",
           payload: {
@@ -368,7 +368,7 @@ Hooks.on("wfrp4e:opposedTestResult", async function (opposedTest, attackerTest, 
     }
     // Flag defender charging
     if (defenderTest.data.preData?.charging || defenderTest.data.result.other === game.i18n.localize("Charging")) {
-      if (!defenderTest.actor.ownership[game.user.id]) {
+      if (!defenderTest.actor.isOwner) {
         await game.socket.emit(`module.${GMToolkit.MODULE_ID}`, {
           type: "setFlag",
           payload: {
@@ -425,7 +425,7 @@ Hooks.on("wfrp4e:opposedTestResult", async function (opposedTest, attackerTest, 
       GMToolkit.log(true, "No advantage gained for winning an opposed test you did not initiate.")
     } else {
       const resolution = await Advantage.update(character, "increase", "wfrp4e:opposedTestResult")
-      if (!winner.ownership[game.user.id]) {
+      if (!winner.isOwner) {
         await game.socket.emit(`module.${GMToolkit.MODULE_ID}`, {
           type: "setFlag",
           payload: {
