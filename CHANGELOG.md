@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.  The format
 ## Unreleased
 See [Issue Backlog](../../issues) and [Roadmap](../../milestones).
 * *Changed* compendium packs from `nedb` to `leveldb` format.  This database format is used from Foundry v11, and this change breaks GM Toolkit compatibility with earlier versions of Foundry. [#247](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/pull/247)
+* Fix Group Test to work with roll dialog changes from WFRP4e 7.1.5.
+* *Changed* **minimum compatibility requirements** to Foundry VTT v11.315 and WFRP4e 7.1.5.
 * *Updated* package dependencies and linting rules. [#248](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/pull/248)
 * *Updated* Japanese translations (thanks @doumoku!) [#245](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/pull/245)
 * *Fixed* incorrect notification of Advantage change when condition is applied outside of combat. [#249](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/issues/249)
@@ -15,7 +17,6 @@ See [Issue Backlog](../../issues) and [Roadmap](../../milestones).
   * Players should complete their rolls before the GM to have their roll results included in the summary group test result message.
 * *Fixed* group advantage for actors where GM is not explicitly an owner. Thanks @Forien! [#237](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/issues/237) [#250](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/issues/250) [#262](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/pull/262)
 * Correct example in Group Test settings for fallback difficulty adjustment.
-* 
 
 ## [Version 6.0.5](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/releases/tag/6.0.5)  (2023-09-03)
 * *Added* compatibility for FVTT v11. [#241](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/issues/241)

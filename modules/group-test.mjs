@@ -125,9 +125,12 @@ export async function runActorTest (actor, testSkill, testOptions) {
   let actorSkill = game.gmtoolkit.utility.hasSkill(actor, testSkill, "silent")
   let setupData = {
     bypass: testOptions.bypass,
-    testModifier: testOptions.testModifier,
-    rollMode: testOptions.rollMode,
-    absolute: { difficulty: testOptions.difficulty },
+    fields: {
+      modifier: testOptions?.testModifier || 0,
+      rollMode: testOptions.rollMode,
+      // TODO: set difficulty selection to system default when bypassing dialog
+      difficulty: testOptions.difficulty
+    },
     groupTest: true,
     title: game.i18n.format("GMTOOLKIT.Dialog.MakeSecretGroupTest.RollTitle", { skill: actorSkill?.name, actor: actor.name })
   }
@@ -150,6 +153,7 @@ export async function runActorTest (actor, testSkill, testOptions) {
         = (actorSkill.advanced.value === "adv")
           ? game.settings.get("wfrp4e-gm-toolkit", "fallbackAdjustDifficulty")
           : 0
+          // TODO: Refactor to use wfrp4e.utility.alterDifficulty
       const difficultySetting
         = (actorSkill.advanced.value === "adv" && stepAdjustDifficulty !== 0)
           ? { modify: { difficulty: stepAdjustDifficulty } }
