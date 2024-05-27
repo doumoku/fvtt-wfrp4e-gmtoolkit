@@ -35,7 +35,6 @@ export async function getGroupMembers (groupType = game.settings.get("wfrp4e-gm-
     playerGroup: game.gmtoolkit.utility.getGroup(groupType).map(g => g.uuid),
     selected: game.gmtoolkit.utility.getGroup("company", { interaction: "selected", present: true }).map(g => g.uuid),
     npcTokens: game.gmtoolkit.utility.getGroup("npcTokens").map(g => g.document.uuid),
-    // _game.gmtoolkit.utility.getGroup("tokens", { interaction: "selected" })
     controlled: canvas.tokens.placeables.filter(t => t.controlled & t.actor.type !== "vehicle").map(g => g.document.uuid)
   }
   return members
@@ -45,7 +44,7 @@ export async function getGroupMembers (groupType = game.settings.get("wfrp4e-gm-
 export async function runGroupTest (testSkill, testOptions) {
   await game.settings.set("wfrp4e-gm-toolkit", "aggregateResultGroupTest", [])
   let actorTestResult = ""
-  let activePlayers = getGroup("assigned", { active: true })
+  const activePlayers = getGroup("assigned", { active: true })
   const targetGroup = (testOptions.targetGroup.filter(member => member !== null))
 
   for (const member of targetGroup) {
@@ -54,9 +53,8 @@ export async function runGroupTest (testSkill, testOptions) {
     actor = actor?.actor ? actor.actor : actor
 
     // Delegate tests to active assigned players
-    if (activePlayers.map(p => p.character)[0] === actor && !testOptions.bypass) {
-      // let options = foundry.utils.duplicate.testOptions
-      // options = { bypass: false }
+    if (!testOptions.bypass
+      && activePlayers.map(p => p.character.uuid).includes(member)) {
       const requestData = {
         type: "requestRoll",
         payload: {
@@ -68,13 +66,16 @@ export async function runGroupTest (testSkill, testOptions) {
           }
         }
       }
-      game.socket.emit(`module.${GMToolkit.MODULE_ID}`, requestData)
+      await game.socket.emit(`module.${GMToolkit.MODULE_ID}`, requestData)
     } else {
+      // Don't delegate if character player is not active or roll dialog is not bypassed
       actorTestResult = await runActorTest(actor, testSkill, testOptions)
     }
   }
 
-  return sendAggregateGroupTestResults(testSkill, testOptions)
+  if (game.settings.get("wfrp4e-gm-toolkit", "aggregateResultGroupTest").length > 0) {
+    sendAggregateGroupTestResults(testSkill, testOptions)
+  }
 
 }
 
