@@ -343,6 +343,15 @@ Hooks.on("wfrp4e:applyDamage", async function (scriptArgs) {
 Hooks.on("wfrp4e:opposedTestResult", async function (opposedTest, attackerTest, defenderTest) {
   GMToolkit.log(true, "wfrp4e:opposedTestResult", opposedTest, attackerTest, defenderTest)
 
+  // For Group Advantage, handle tests which should not generate advantage
+  if (
+    game.settings.get("wfrp4e", "useGroupAdvantage") &&
+    attackerTest.data?.result?.options?.preventAdvantage === true
+  ) {
+    GMToolkit.log(true, "No advantage gained for winning an opposed test that should not generate advantage.");
+    return;
+  }
+
   // CHARGING: Set Advantage flag if attacker and/or defender charged, and Group Advantage is not being used. Do this once before exiting for unopposed tests.
   if (!game.settings.get("wfrp4e", "useGroupAdvantage")) {
     // Flag attacker charging
