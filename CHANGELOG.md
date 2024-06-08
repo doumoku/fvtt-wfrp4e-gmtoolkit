@@ -16,7 +16,8 @@ See [Issue Backlog](../../issues) and [Roadmap](../../milestones).
   * The GM will need to select the "Bypass Roll Dialog" option when making a Group Test.
   * Players should complete their rolls before the GM to have their roll results included in the summary group test result message.
 * *Fixed* group advantage for actors where GM is not explicitly an owner. Thanks @Forien! [#237](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/issues/237) [#250](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/issues/250) [#262](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/pull/262)
-* Correct example in Group Test settings for fallback difficulty adjustment.
+* *Fixed* example in Group Test settings for fallback difficulty adjustment.
+* *Added* check to prevent advantage gain when Group Advantage is enabled and opposed test should not generate advantage when using Token Action HUD WFRP4e. Thanks @Forien! [#263](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/pull/263)
 
 ## [Version 6.0.5](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/releases/tag/6.0.5)  (2023-09-03)
 * *Added* compatibility for FVTT v11. [#241](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/issues/241)
