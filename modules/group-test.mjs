@@ -104,7 +104,8 @@ async function sendAggregateGroupTestResults (testSkill, testOptions) {
     actorTestResultMessage
       += `<strong>${testResult.actor.name}:</strong> `
       + `<abbr title="${testResult.description}"><strong>${testResult.sl} SL</strong></abbr> (${testResult.roll} v ${testResult.target})`
-    if (testResult.characteristic) actorTestResultMessage += ` [${game.i18n.localize(testResult.characteristic.abrev)}]`
+    if (testResult.characteristic) actorTestResultMessage += ` [${game.i18n.localize(game.wfrp4e.config.characteristics[testResult.characteristic])
+    }]`
 
     // Transfer to group test message and nuke actor test message
     groupTestResultsMessage += `${actorTestResultMessage}</br>`
@@ -204,13 +205,18 @@ Hooks.on("wfrp4e:rollTest", async function (testData, chatData) {
     const testResult = {
       actor: testData.token || testData.actor,
       skill: testData?.skill,
-      characteristic: testData?.characteristic,
+      // characteristic: ( testData?.characteristic ? testData?.characteristicKey ),
       outcome: testData.outcome,
       sl: testData.result.SL,
       description: testData.result.description,
       roll: testData.result.roll,
       target: testData.target
     }
+
+    if (testData?.characteristic) (
+      testResult.characteristic = testData.characteristicKey
+    )
+
     await groupTestResult.push(testResult)
     // GMToolkit.log(true, "groupTestResult: this test result", testResult)
     // GMToolkit.log(true, "groupTestResult: groupTestResult", groupTestResult)
