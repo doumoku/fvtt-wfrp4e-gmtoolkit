@@ -52,9 +52,20 @@ export async function runGroupTest (testSkill, testOptions) {
     let actor = await fromUuid(member)
     actor = actor?.actor ? actor.actor : actor
 
+    if (testOptions?.difficulty === undefined) {
+      // Overrides default difficulty to Average depending on module setting and combat state
+      let difficulty = "challenging"
+      if (game.settings.get("wfrp4e", "testDefaultDifficulty") && (game.combat != null))
+        difficulty = game.combat.started ? "challenging" : "average"
+      else if (game.settings.get("wfrp4e", "testDefaultDifficulty"))
+        difficulty = "average"
+      testOptions.difficulty = difficulty
+    }
+
     // Delegate tests to active assigned players
     if (!testOptions.bypass
       && activePlayers.map(p => p.character.uuid).includes(member)) {
+
       const requestData = {
         type: "requestRoll",
         payload: {
