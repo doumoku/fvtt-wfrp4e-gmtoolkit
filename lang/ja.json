@@ -310,7 +310,7 @@
     "ROLL.Failure" : "大失敗。「ノー。しくじったな……」",
     "ROLL.MarginalFailure" : "超大失敗。「ノー。かすりもしねえ！」", 
 
-    "GMTOOLKIT.Message.Welcome.VersionIsActive" : "GM Toolkit v{version} は動作中です。",
+    "GMTOOLKIT.Message.Welcome.VersionIsActive" : "GM Toolkit {version} は動作中です。",
     "GMTOOLKIT.Message.Welcome.ReleaseNotes" : "リリースノート",
     "GMTOOLKIT.Message.Welcome.ContentUpdateWarning" : "マクロやロール表をアップデートすると現在存在しているGM Toolkitのコンテンツを削除します。別名で保存されていなければカスタマイズした内容は全て失われます。",
     "GMTOOLKIT.Message.Welcome.UpdateMacros" : "マクロをアップデート",
