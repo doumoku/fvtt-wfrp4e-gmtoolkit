@@ -21,7 +21,7 @@ See the [wiki](../../wiki) for details about features, including (but not only):
 ## Compatibility
 
 Version 7.x requires
-- Foundry VTT: v11.315 or higher 
+- Foundry VTT: v11.315 or higher, up to (but not including) v12
 - WFRP4e: 7.1.5 or higher
 
 ## Installation Instructions
