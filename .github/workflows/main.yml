@@ -8,16 +8,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # Get Foundry CLI
       - name: Install FVTT CLI
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 18
-
-      # Compile compendium packs
+          node-version: '18'
       - run: npm i -g @foundryvtt/foundryvtt-cli
+
+      # Seutup python and compile compendium packs
+      - name: Setup python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
       - run: python pack_util.py pack
       
       # Get Module ID
