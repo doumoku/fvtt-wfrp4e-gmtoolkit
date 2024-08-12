@@ -6,7 +6,10 @@ All notable changes to this project will be documented in this file.  The format
 ## Unreleased
 See [Issue Backlog](../../issues) and [Roadmap](../../milestones).
 
-## [Version 7.1.0](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/releases/tag/v7.0.3)  (2024-08-12)
+## [Version 7.1.1](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/releases/tag/v7.1.1)  (2024-08-12)
+* *Fixed* Maintenance utility not loading when (RollTable) content version flag is missing
+
+## [Version 7.1.0](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/releases/tag/v7.1.0)  (2024-08-12)
 * *Added* compatibility for Foundry VTT v12. This is a **breaking** change:
   * v11 is no longer supported beyond GM Toolkit v7.0.3.
   * v12 the minimum version required for GM Toolkit.
