@@ -91,7 +91,7 @@
     "GMTOOLKIT.AddXP.Flavor" : "{reason}に{XP}経験点の報酬",
 
     "GMTOOLKIT.Advantage.Increased" : "{actorName}の優位が{startingAdvantage}から{newAdvantage}に増えました。",
-    "GMTOOLKIT.Advantage.Max" : "{actorName} already has {startingAdvantage} of maximum {maxAdvantage} Advantage. 変更されませんでした。",
+    "GMTOOLKIT.Advantage.Max" : "{actorName}はすでに優位を最大値である{maxAdvantage}と同じ{startingAdvantage}だけ持っています。変更されませんでした。",
     "GMTOOLKIT.Advantage.Reduced" : "{actorName}の優位は{startingAdvantage}から{newAdvantage}に減少。",
     "GMTOOLKIT.Advantage.None" : "{actorName}の優位は既に{startingAdvantage}で、何も変更されませんでした。",
     "GMTOOLKIT.Advantage.Reset" : "{actorName}の優位が{startingAdvantage}から0に初期化された。",
@@ -244,7 +244,7 @@
     "GMTOOLKIT.Settings.DarkWhispers.message.taunt" : "<p><strong>闇の神々はあなたが悩んでいるのを見ている。</strong></p><p><em>些細な好意で、あなたの堕落を一つ解放してくれるだろう。</em></p><blockquote>{message}</blockquote><p>それにどんな害が有るのだろうか？この申し出を受けて、混沌の瀬戸際から一歩戻るのだ。</p>",
     "GMTOOLKIT.Settings.DarkWhispers.message.threat" : "<p><strong>「暗黒のささやき」が耳にから離れない。。。 </strong></p><p><em>このメッセージを受け取ったことは、誰にも明かしてはいけない。</em></p><blockquote>{message}</blockquote><p>指示に従えば、君は堕落ポイントを１減らせるだろう。</p>",
     "GMTOOLKIT.Settings.DarkWhispers.DefaultGroup.name" : "テスト対象の既定値",
-    "GMTOOLKIT.Settings.DarkWhispers.DefaultGroup.hint" : "プレイヤーに割り当てられているキャラクターのみを対象とする場合は「party」を選択、プレイヤーに所有権があるノンプレイヤーキャラクターやクリーチャー（雇用やヘンチマン、使い魔など）も含める場合は「company」を選択する。 Individual characters can be de-selected in the Group Test dialog.", 
+    "GMTOOLKIT.Settings.DarkWhispers.DefaultGroup.hint" : "プレイヤーに割り当てられているキャラクターのみを対象とする場合は「パーティ」を選択、プレイヤーに所有権があるノンプレイヤーキャラクターやクリーチャー（雇用やヘンチマン、使い魔など）も含める場合は「仲間」を選択する。個別のキャラクターをグループテストダイアログから外すことができる。", 
     "GMTOOLKIT.Notification.NoActor" : "キャラクターが選択されていないか、{currentuser}に割り当てられていない。",
     "GMTOOLKIT.Notification.UserMustBePlayer" : "「{action}」はプレイヤーだけが実行できる。",
 
@@ -263,7 +263,7 @@
     "GMTOOLKIT.Macro.ChangeScenetoYards": "シーン縮尺をヤードに変更",
     "GMTOOLKIT.Macro.Simplyd100": "100面ダイス",
     "GMTOOLKIT.Macro.GMToolbox": "GM Toolbox",
-    "GMTOOLKIT.Macro.GMToolkitSettings": "GM Toolkit 設定",
+    "GMTOOLKIT.Macro.GMToolkitSettings": "GM Toolkit設定",
     "GMTOOLKIT.Macro.ToggleCompendiumPackVisibility": "百科事典の表示状態切替",
     "GMTOOLKIT.Macro.CheckConditions": "状態のチェック",
     "GMTOOLKIT.Macro.LaunchDamageConsole": "ダメージコンソール起動",
