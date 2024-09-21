@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.  The format
 ## Unreleased
 See [Issue Backlog](../../issues) and [Roadmap](../../milestones).
 
+## [Version 8.0.1](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/releases/tag/v8.0.1)  (2024-09-21)
 - *Added* WFRP4e v8 compatibility for Check Conditions macro.
 - *Added* Japanese translation updates. Thanks @doumoku! [[#281](https://github.com/Jagusti/fvtt-wfrp4e-gmtoolkit/pull/281)]
 
